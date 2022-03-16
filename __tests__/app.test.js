@@ -35,12 +35,12 @@ describe('Ratalog routes', () => {
       .get('/api/v1/rats');
 
     expect(res.body).toEqual(
-      await Rat.findAll()
+      await Rat.getAll()
     );
   });
   
   it('gets a rat by id', async () => {
-    const expected = await Rat.findById(1);
+    const expected = await Rat.getById(1);
     const res = await request(app)
       .get(`/api/v1/rats/${expected.id}`);
 
@@ -49,7 +49,7 @@ describe('Ratalog routes', () => {
     });
   });
 
-  
+
 
 
 });
