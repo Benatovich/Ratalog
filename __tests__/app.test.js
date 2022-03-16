@@ -11,4 +11,20 @@ describe('Ratalog routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('should create a new rat with a name, sex, and color', async () => {
+    const res = await request(app)
+      .post('/api/v1/rats')
+      .send({ 
+        name: 'lab rat',
+        sex: 'male',
+        color: 'white'
+      });
+
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: 'lab rat',
+      color: 'white',
+    });
+  });
 });
