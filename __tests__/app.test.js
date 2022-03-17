@@ -55,13 +55,23 @@ describe('Ratalog routes', () => {
       color: 'white',
     });
     const res = await request(app)
-      .patch('/api/v1/rats/1')
+      .patch(`/api/v1/rats/${expected.id}`)
       .send({ name: 'Morty' });
 
     expect(res.body).toEqual(expected);
   });
 
+  it('deletes a rat by id', async () => {
+    const expected = await Rat.create({
+      name: 'Splinter',
+      sex: 'male',
+      color: 'agouti',
+    });
+    const res = await request(app)
+      .delete(`/api/v1/rats/${expected.id}`);
 
+    expect(res.body).toEqual(expected);
+  });
 
 
 });
