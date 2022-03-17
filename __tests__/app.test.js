@@ -40,13 +40,12 @@ describe('Ratalog routes', () => {
   });
   
   it('gets a rat by id', async () => {
-    const expected = await Rat.getById(1);
+    const rat = await Rat.create({ name: 'lab rat', sex: 'male', color: 'white' });
+    // const expected = await Rat.getById(1);
     const res = await request(app)
-      .get(`/api/v1/rats/${expected.id}`);
+      .get(`/api/v1/rats/${rat.id}`);
 
-    expect(res.body).toEqual({
-      ...expected
-    });
+    expect(res.body).toEqual(rat);
   });
 
 
