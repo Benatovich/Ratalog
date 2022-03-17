@@ -49,15 +49,14 @@ describe('Ratalog routes', () => {
   });
 
   it('updates a rat by id', async () => {
-    const expected = {
-      id: expect.any(String),
-      name: 'Jeff',
-      sex: 'male',
+    const expected = await Rat.create({
+      name: 'Morty',
+      sex: 'female',
       color: 'white',
-    };
+    });
     const res = await request(app)
       .patch('/api/v1/rats/1')
-      .send({ name: 'Jeff' });
+      .send({ name: 'Morty' });
 
     expect(res.body).toEqual(expected);
   });
