@@ -48,6 +48,20 @@ describe('Ratalog routes', () => {
     expect(res.body).toEqual(rat);
   });
 
+  it('updates a rat by id', async () => {
+    const expected = {
+      id: expect.any(String),
+      name: 'Jeff',
+      sex: 'male',
+      color: 'white',
+    };
+    const res = await request(app)
+      .patch('/api/v1/rats/1')
+      .send({ name: 'Jeff' });
+
+    expect(res.body).toEqual(expected);
+  });
+
 
 
 
