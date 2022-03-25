@@ -31,6 +31,7 @@ describe('Ratalog routes', () => {
   });
 
   it('gets a list of rats', async () => {
+    await Rat.create({ name: 'lab rat', sex: 'male', color: 'white' });
     const res = await request(app)
       .get('/api/v1/rats');
 
