@@ -8,3 +8,13 @@ CREATE TABLE rats (
     sex TEXT NOT NULL,
     color TEXT NOT NULL
 );
+
+INSERT INTO
+    rats (name, sex, color)
+VALUES
+    ('ripley', 'female', 'grey'),
+    ('halibel', 'female', 'hooded white'),
+    ('camina', 'female', 'agouti'),
+    ('kozo', 'female', 'agouti'),
+    ('nico', 'female', 'black'),
+    ('nel', 'female', 'black');
